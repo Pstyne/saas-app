@@ -13,7 +13,7 @@
     <% flash.clear  # clear contents so we won't see it again %>
     <%= form_for(@member, :html => { :class => "form login" }) do |f| %>
       <% unless @member.errors.empty? && @user.errors.empty? %>
-        <div class="group" id="errorExplanation">
+        <div class="panel-body" id="errorExplanation">
           <ul>
             <%= @member.errors.full_messages.uniq.inject(''){|str, msg| str << "<li> #{msg}"}.html_safe %>
             <%= @user.errors.full_messages.uniq.inject(''){|str, msg| str << "<li> #{msg}"}.html_safe %>
@@ -21,22 +21,22 @@
         </div>
       <% end %>
       <%= fields_for( :user ) do |w| %>
-        <div class="group">
-          <%= w.label :email, :class => "label " %>
-          <%= w.text_field :email, :class => "text_field" %>
+        <div class="control-group">
+          <%= w.label :email, :class => "control-label" %>
+          <%= w.text_field :email, :class => "form-control" %>
           <span class="description">Ex. test@example.com; must be unique</span>
         </div>
       <% end %>
-      <div class="group">
-        <%= f.label :first_name, :class => "label " %>
-        <%= f.text_field :first_name, :class => "text_field" %>
+      <div class="control-group">
+        <%= f.label :first_name, :class => "control-label" %>
+        <%= f.text_field :first_name, :class => "form-control" %>
       </div>
-      <div class="group">
-        <%= f.label :last_name, :class => "label " %>
-        <%= f.text_field :last_name, :class => "text_field" %>
+      <div class="control-group">
+        <%= f.label :last_name, :class => "control-label" %>
+        <%= f.text_field :last_name, :class => "form-control" %>
       </div>
-      <div class="group navform wat-cf">
-        <button class="button" type="submit">
+      <div class="control-group navform wat-cf">
+        <button class="btn btn-primary" type="submit">
           Create user and invite
         </button>
       </div>

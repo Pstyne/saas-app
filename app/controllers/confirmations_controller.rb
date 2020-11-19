@@ -36,7 +36,7 @@ class ConfirmationsController < Milia::ConfirmationsController
       yield resource if block_given?
       
       if resource.errors.empty?
-        ser_flash_message(:notice, :confirmed) if is_flashing_format?
+        set_flash_message(:notice, :confirmed) if is_flashing_format?
       end
       
       if @confirmable.skip_confirm_change_password
