@@ -60,16 +60,15 @@
 }
 
 .jumbotron {
-  background-image: asset-url('meeting1.png');
+  background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), asset-url('project.jpg');
   background-size: cover;
   color: #fff;
-  font-family: 'Helvetica Neue' !important;
+  background-position-y: -680px;
   font-stretch: expanded;
   padding-top: 95px;
   padding-bottom: 95px;
   margin-left: 15px;
   margin-right: 15px;
-  text-shadow: -1px 0 #555, 0 1px #555, 1px 0 #555, 0 -1px #555;
 
   h2 {
     font-size: 35px !important;

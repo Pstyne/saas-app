@@ -6,17 +6,17 @@
   <thead>
     <tr>
       <th>Email</th>
-      <th><%= t "."actions, :default => t("helper.actions") %></th>
+      <th><%= t ".actions", :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
-    <% @project_users.each do |user_project| %>
+    <% @project_users.each do |project_user| %>
       <tr>
         <td><%= project_user.email %></td>
         <td>
-          <% unless project_user.is_admin? %>
-            <%= link_to "Remove", user_project_path project_user.user_projects.find_by(project_id: @project.id,
-            tenant_id: @project.tenant_id), 
+          <% if !project_user.is_admin? %>
+            <%= link_to "Remove", user_project_path(project_user.user_projects.find_by(project_id: @project.id,
+            tenant_id: @project.tenant_id)), 
             :method => :delete, 
             :data => { :confirm => t(".confirm", :default => t("helpers.links.confirm", :default => "Are you sure?"))},
             :class => "btn btn-danger btn-xs" %>
