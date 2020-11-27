@@ -16,6 +16,7 @@ $(document).on('turbolinks:load', function(){
   var show_error, stripeResponseHandler, submitHandler;
 
   submitHandler = (e) => {
+    console.log("submithandler")
     var $form = $(e.target);
     $form.find("input[type=submit]").prop("disabled", true);
 
@@ -49,7 +50,7 @@ $(document).on('turbolinks:load', function(){
   };
   
   $('#tenant_plan').on('change', function(e){
-    handlePlanChange($('#tenant_plan :selected').val(), 'cc_form');
+    handlePlanChange($('#tenant_plan :selected').val(), '.cc_form');
   });
   
   handlePlanChange(getURLParameter('plan'), '.cc_form');
@@ -65,7 +66,7 @@ $(document).on('turbolinks:load', function(){
       $form.find("input[type=submit]").prop("disabled", false);
     } else {
       token = res.id;
-      $form.append($("<input type=\"hidden\" name=\"payment[token]\" />").val(token));
+      $form.append($("<input type='hidden' name='payment[token]' />").val(token));
       $("[data-stripe=number]").remove();
       $("[data-stripe=cvc]").remove();
       $("[data-stripe=year]").remove();

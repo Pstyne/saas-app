@@ -9,7 +9,7 @@ class TenantsController < ApplicationController
         if @tenant.update(tenant_params)
           if @tenant.plan == "premium" && @tenant.payment.blank?
             @payment = Payment.new({
-              email: tenant_params["email"],
+              email: current_user.email,
               token: params[:payment]["token"],
               tenant: @tenant
             })
